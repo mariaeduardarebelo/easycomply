@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class MenuTile extends StatelessWidget {
-  MenuTile({@required this.height, @required this.label, this.logo});
+  MenuTile(
+      {@required this.height,
+      @required this.label,
+      this.logo,});
 
   final height;
   final label;
@@ -19,7 +22,12 @@ class MenuTile extends StatelessWidget {
         fixedSize: MaterialStateProperty.all<Size>(Size.fromWidth(166.0)),
         backgroundColor: MaterialStateProperty.all<Color>(Color(0xFF1A3F6D)),
       ),
-      onPressed: () {},
+      onPressed: () {
+        Navigator.pushNamed(
+          context,
+          '/$label'.toLowerCase(),
+        );
+      },
       child: Container(
         child: Column(
           children: [
