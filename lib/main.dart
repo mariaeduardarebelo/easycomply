@@ -7,6 +7,7 @@ void main() {
           centerTitle: true,
           backgroundColor: Color(0xFF214979),
           title: SizedBox(
+            height: 40,
             child: Image.asset('assets/easycomply.png'),
           )
         ),
