@@ -9,7 +9,7 @@ void main() {
             centerTitle: true,
             backgroundColor: Color(0xFF1A3F6D),
             title: SizedBox(
-              height: 40,
+              height: 35,
               child: Image.asset('assets/easycomply.png'),
             )),
         body: MenuPage(),
@@ -29,11 +29,19 @@ class MenuPage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Column(
-            children: [MenuTile(height: 235.0, label: 'Dashboard',), SizedBox(height: 10), MenuTile(height: 150.0, label: 'Profile',)],
+            children: [
+              MenuTile(height: 235.0, label: 'Dashboard', logo: 'dashboard'), 
+              SizedBox(height: 10), 
+              MenuTile(height: 150.0, label: 'Profile', logo: 'profile'),
+            ],
           ),
           SizedBox(width: 10),
           Column(
-            children: [MenuTile(height: 150.0, label: 'LGPD',), SizedBox(height: 10), MenuTile(height: 235.0, label: 'Checklist',)],
+            children: [
+              MenuTile(height: 150.0, label: 'LGPD', logo: 'lgpd'), 
+              SizedBox(height: 10), 
+              MenuTile(height: 235.0, label: 'Checklist', logo: 'checklist'),
+            ],
           ),
         ],
       ),
