@@ -1,4 +1,5 @@
-import 'package:easycomply/MenuTile.dart';
+import 'package:easycomply/components/menu_tile.dart';
+import 'package:easycomply/pages/home.dart';
 import 'package:flutter/material.dart';
 
 class Menu extends StatelessWidget {
@@ -25,12 +26,20 @@ class Menu extends StatelessWidget {
                   height: 235.0,
                   label: 'Dashboard',
                   logo: 'dashboard',
+                  onPressed: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => HomePage(initialPageIndex: 0,)),
+                  ),
                 ),
                 SizedBox(height: 10),
                 MenuTile(
                   height: 150.0,
                   label: 'Profile',
                   logo: 'profile',
+                  onPressed: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => HomePage(initialPageIndex: 3,)),
+                  ),
                 ),
               ],
             ),
@@ -41,12 +50,20 @@ class Menu extends StatelessWidget {
                   height: 150.0,
                   label: 'LGPD',
                   logo: 'lgpd',
+                  onPressed: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => HomePage(initialPageIndex: 2,)),
+                  ),
                 ),
                 SizedBox(height: 10),
                 MenuTile(
                   height: 235.0,
                   label: 'Checklist',
                   logo: 'checklist',
+                  onPressed: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => HomePage(initialPageIndex: 1,)),
+                  ),
                 ),
               ],
             ),

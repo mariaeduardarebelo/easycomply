@@ -2,14 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class MenuTile extends StatelessWidget {
-  MenuTile(
-      {@required this.height,
-      @required this.label,
-      this.logo,});
 
-  final height;
-  final label;
-  final logo;
+  final double height;
+  final String label;
+  final String logo;
+
+  final Function() onPressed;
+
+  MenuTile({
+    required this.height,
+    required this.label,
+    required this.logo,
+    required this.onPressed
+  });
+
+
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
@@ -22,12 +29,7 @@ class MenuTile extends StatelessWidget {
         fixedSize: MaterialStateProperty.all<Size>(Size.fromWidth(166.0)),
         backgroundColor: MaterialStateProperty.all<Color>(Color(0xFF1A3F6D)),
       ),
-      onPressed: () {
-        Navigator.pushNamed(
-          context,
-          '/$label'.toLowerCase(),
-        );
-      },
+      onPressed: onPressed,
       child: Container(
         child: Column(
           children: [
