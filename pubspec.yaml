@@ -31,6 +31,7 @@ dependencies:
   google_fonts: ^2.1.0
   charts_flutter: ^0.11.0
   syncfusion_flutter_charts: ^19.1.54
+  syncfusion_flutter_pdfviewer: ^19.2.47-beta
 
 dev_dependencies:
   flutter_test:
