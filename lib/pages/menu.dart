@@ -28,7 +28,7 @@ class Menu extends StatelessWidget {
                   logo: 'dashboard',
                   onPressed: () => Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => HomePage(initialPageIndex: 0,)),
+                    MaterialPageRoute(builder: (context) => HomePage(initialPageIndex: 0),),
                   ),
                 ),
                 SizedBox(height: 10),
@@ -38,7 +38,7 @@ class Menu extends StatelessWidget {
                   logo: 'profile',
                   onPressed: () => Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => HomePage(initialPageIndex: 3,)),
+                    MaterialPageRoute(builder: (context) => HomePage(initialPageIndex: 3),),
                   ),
                 ),
               ],
@@ -52,7 +52,7 @@ class Menu extends StatelessWidget {
                   logo: 'lgpd',
                   onPressed: () => Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => HomePage(initialPageIndex: 2,)),
+                    MaterialPageRoute(builder: (context) => HomePage(initialPageIndex: 2),),
                   ),
                 ),
                 SizedBox(height: 10),
@@ -62,7 +62,7 @@ class Menu extends StatelessWidget {
                   logo: 'checklist',
                   onPressed: () => Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => HomePage(initialPageIndex: 1,)),
+                    MaterialPageRoute(builder: (context) => HomePage(initialPageIndex: 1),),
                   ),
                 ),
               ],

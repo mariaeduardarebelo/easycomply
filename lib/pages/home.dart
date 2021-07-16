@@ -33,6 +33,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       body: PageView(
         controller: _pageController,
+        onPageChanged: _pageChangeHandler,
         children: [
           Dashboard(),
           Checklist(),
@@ -76,5 +77,11 @@ class _HomePageState extends State<HomePage> {
     });
 
     _pageController.jumpToPage(index);
+  }
+
+  void _pageChangeHandler(int index) {
+    setState(() {
+      _currentIndex = index;
+    });
   }
 }
