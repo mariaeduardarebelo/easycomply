@@ -12,12 +12,17 @@ class Menu extends StatefulWidget {
 
 class _MenuState extends State<Menu> {
   final items = [
-    CheckBoxState(title: "primeira lei"),
-    CheckBoxState(title: "segunda lei"),
-    CheckBoxState(title: "terceira lei"),
-    CheckBoxState(title: "quarta lei"),
-    CheckBoxState(title: "quinta lei"),
-    CheckBoxState(title: "sexta lei"),
+    CheckBoxState(title: "Due Diligence sobre dados pessoais"),
+    CheckBoxState(title: "Auditoria sobre tratamento"),
+    CheckBoxState(title: "Gestão de Consentimento e Autorização"),
+    CheckBoxState(title: "Gestão dos Pedidos do Titular"),
+    CheckBoxState(title: "Relatório de Impacto"),
+    CheckBoxState(title: "Segurança dos Dados"),
+    CheckBoxState(title: "Governança de Tratamento"),
+    CheckBoxState(title: "Plano de Comunicação - Incidente de Segurança "),
+    CheckBoxState(title: "Validação do Término de Tratamento"),
+    CheckBoxState(title: "Definir DPO (Data Protection Officer)"),
+    CheckBoxState(title: "Prevenção de Conflitos"),
   ];
 
 @override

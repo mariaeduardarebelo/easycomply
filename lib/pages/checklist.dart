@@ -8,16 +8,14 @@ class Checklist extends StatefulWidget {
 }
 
 class _ChecklistState extends State<Checklist> {
-
   var updatedItems;
 
   @override
   void initState() {
     var box = Hive.box<CheckBoxState>('lgpd_checkboxes');
 
-    updatedItems = box.toMap()
-      .entries.map((checkboxItem) => checkboxItem.value)
-      .toList();
+    updatedItems =
+        box.toMap().entries.map((checkboxItem) => checkboxItem.value).toList();
 
     super.initState();
   }
@@ -31,9 +29,7 @@ class _ChecklistState extends State<Checklist> {
       ),
       body: ListView(
         padding: EdgeInsets.all(12.0),
-        children: [
-          ...updatedItems.map(buildSingleCheckbox).toList()
-        ],
+        children: [...updatedItems.map(buildSingleCheckbox).toList()],
       ),
     );
   }
