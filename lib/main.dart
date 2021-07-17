@@ -17,6 +17,7 @@ void main() async {
 
   runApp(
     MaterialApp(
+      theme: ThemeData(unselectedWidgetColor: Colors.white),
       debugShowCheckedModeBanner: false,
       home: Menu(),
     ),

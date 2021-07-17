@@ -18,6 +18,7 @@ class CheckBoxStateAdapter extends TypeAdapter<CheckBoxState> {
     };
     return CheckBoxState(
       title: fields[0] as String,
+      sessionTitle: fields[2] as String,
       value: fields[1] as bool,
     );
   }
@@ -25,11 +26,13 @@ class CheckBoxStateAdapter extends TypeAdapter<CheckBoxState> {
   @override
   void write(BinaryWriter writer, CheckBoxState obj) {
     writer
-      ..writeByte(2)
+      ..writeByte(3)
       ..writeByte(0)
       ..write(obj.title)
       ..writeByte(1)
-      ..write(obj.value);
+      ..write(obj.value)
+      ..writeByte(2)
+      ..write(obj.sessionTitle);
   }
 
   @override

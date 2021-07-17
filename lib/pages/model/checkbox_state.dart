@@ -10,5 +10,8 @@ class CheckBoxState extends HiveObject {
   @HiveField(1)
   late bool value;
 
-  CheckBoxState({required this.title, this.value = false});
+  @HiveField(2)
+  late String sessionTitle;
+
+  CheckBoxState({required this.title, required this.sessionTitle, this.value = false});
 }

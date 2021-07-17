@@ -40,7 +40,7 @@ class MenuTile extends StatelessWidget {
             Text(
               '$label'.toUpperCase(),
               style: GoogleFonts.oswald(
-                fontSize: 28.0,
+                fontSize: 26.0,
               ),
             ),
           ],

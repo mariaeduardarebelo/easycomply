@@ -71,7 +71,7 @@ class _ProfileState extends State<Profile> {
                   children: [
                     Container(
                       width: 155.0,
-                      height: 185.0,
+                      height: 200.0,
                       margin: EdgeInsets.only(right: 11.5),
                       decoration: BoxDecoration(
                         color: Color(0xff9FC7F8),
@@ -96,7 +96,7 @@ class _ProfileState extends State<Profile> {
                     ),
                     Container(
                       width: 155.0,
-                      height: 185.0,
+                      height: 200.0,
                       padding: EdgeInsets.symmetric(vertical: 21.0),
                       margin: EdgeInsets.only(left: 11.5),
                       decoration: BoxDecoration(
