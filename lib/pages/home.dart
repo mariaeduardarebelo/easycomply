@@ -18,9 +18,10 @@ class _HomePageState extends State<HomePage> {
 
   @override
   void initState() {
+    super.initState();
+    
     _currentIndex = widget.initialPageIndex;
     _pageController = PageController(initialPage: widget.initialPageIndex);
-    super.initState();
   }
 
   @override

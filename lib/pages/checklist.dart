@@ -1,6 +1,6 @@
 import 'package:easycomply/pages/model/checkbox_state.dart';
 import 'package:flutter/material.dart';
-import 'controllers/home_controller.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
 class Checklist extends StatefulWidget {
   @override
@@ -8,20 +8,17 @@ class Checklist extends StatefulWidget {
 }
 
 class _ChecklistState extends State<Checklist> {
-  // HomeController _controller = HomeController();
 
-  final items = [
-    CheckBoxState(title: "primeira lei"),
-    CheckBoxState(title: "segunda lei"),
-    CheckBoxState(title: "terceira lei"),
-    CheckBoxState(title: "quarta lei"),
-    CheckBoxState(title: "quinta lei"),
-    CheckBoxState(title: "sexta lei"),
-  ];
+  var updatedItems;
 
   @override
   void initState() {
-    // _controller.increment();
+    var box = Hive.box<CheckBoxState>('lgpd_checkboxes');
+
+    updatedItems = box.toMap()
+      .entries.map((checkboxItem) => checkboxItem.value)
+      .toList();
+
     super.initState();
   }
 
@@ -35,35 +32,23 @@ class _ChecklistState extends State<Checklist> {
       body: ListView(
         padding: EdgeInsets.all(12.0),
         children: [
-          ...items.map(buildSingleCheckbox).toList()
+          ...updatedItems.map(buildSingleCheckbox).toList()
         ],
       ),
     );
   }
 
   buildSingleCheckbox(CheckBoxState checkbox) => CheckboxListTile(
-    controlAffinity: ListTileControlAffinity.leading,
-    activeColor: Color(0xFF1C4E89),
-    value: checkbox.value,
-    title: Text(
-      checkbox.title,
-      style: TextStyle(fontSize: 20.0),
-    ),
-    onChanged: (value) => setState(() => checkbox.value = value!),
-  );
+        controlAffinity: ListTileControlAffinity.leading,
+        activeColor: Color(0xFF1C4E89),
+        value: checkbox.value,
+        title: Text(
+          checkbox.title,
+          style: TextStyle(fontSize: 20.0),
+        ),
+        onChanged: (value) => setState(() {
+          checkbox.value = value!;
+          checkbox.save();
+        }),
+      );
 }
-
-// @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       body: Center(
-//         child: ValueListenableBuilder<int>(
-//           builder: (context, value, child) => Text(value.toString()),
-//           valueListenable: _controller.counter,
-//         ),
-//       ),
-//       floatingActionButton: FloatingActionButton(
-//         onPressed: () => _controller.increment(),
-//       ),
-//     );
-//   }

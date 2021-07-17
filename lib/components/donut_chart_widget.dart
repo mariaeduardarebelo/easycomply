@@ -1,4 +1,6 @@
+import 'package:easycomply/pages/model/checkbox_state.dart';
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 class DonutPieChart extends StatefulWidget {
@@ -8,13 +10,28 @@ class DonutPieChart extends StatefulWidget {
 
 class _DonutPieChartState extends State<DonutPieChart> {
   late List<LGPDData> _chartData;
-  final int complyingCount = 8;
-  final int notComplyingCount = 10;
+  late int complyingCount = 0;
+  late int notComplyingCount = 0;
   late int totalCount = complyingCount + notComplyingCount;
 
   @override
   void initState() {
     super.initState();
+
+    var box = Hive.box<CheckBoxState>('lgpd_checkboxes');
+
+    complyingCount = box.toMap().entries
+      .where((checkbox) => checkbox.value.value == true)
+      .map((checkbox) => checkbox.value)
+      .toList()
+      .length;
+
+    notComplyingCount = box.toMap().entries
+      .where((checkbox) => checkbox.value.value == false)
+      .map((checkbox) => checkbox.value)
+      .toList()
+      .length;
+      
     _chartData = getChartData();
   }
 
@@ -27,12 +44,15 @@ class _DonutPieChartState extends State<DonutPieChart> {
           margin: EdgeInsets.symmetric(vertical: 50.0),
           child: SfCircularChart(
             title: ChartTitle(
-                text:
-                    'You are complying with \n $complyingCount points of LGPD from a total of $totalCount'.toUpperCase(),
-                textStyle: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 17.0)),
+              text:
+                  'You are complying with \n $complyingCount points of LGPD from a total of $totalCount'
+                      .toUpperCase(),
+              textStyle: TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+                fontSize: 17.0,
+              ),
+            ),
             palette: <Color>[Color(0xFF2B8540), Color(0xFFE6EBF0)],
             legend: Legend(
                 isVisible: true,

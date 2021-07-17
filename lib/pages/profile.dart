@@ -13,23 +13,23 @@ class Profile extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Container(
-                width: 167.0,
-                height: 167.0,
+                width: 170.0,
+                height: 170.0,
                 child: 
                   CircleAvatar(
-                    child: Image.asset('assets/avatar.png'),
+                    backgroundImage: ExactAssetImage('assets/avatar.png'),
                   ),
               ),
-              SizedBox(height: 15.0,),
+              SizedBox(height: 15.0),
               Text(
-                'Maria Rebelo', 
+                'Dani C', 
                 style: GoogleFonts.oswald(
                   fontSize: 28.0,
                   color: Colors.white
                 ),
               ),
               Text(
-                'dicarllim@gmail.com', 
+                'danic@example.com', 
                 style: GoogleFonts.roboto(
                   fontSize: 16.0,
                   color: Colors.white

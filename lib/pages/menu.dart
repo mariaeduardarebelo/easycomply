@@ -1,20 +1,48 @@
 import 'package:easycomply/components/menu_tile.dart';
 import 'package:easycomply/pages/home.dart';
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
 
-class Menu extends StatelessWidget {
-  
+import 'model/checkbox_state.dart';
+
+class Menu extends StatefulWidget {
+  @override
+  _MenuState createState() => _MenuState();
+}
+
+class _MenuState extends State<Menu> {
+  final items = [
+    CheckBoxState(title: "primeira lei"),
+    CheckBoxState(title: "segunda lei"),
+    CheckBoxState(title: "terceira lei"),
+    CheckBoxState(title: "quarta lei"),
+    CheckBoxState(title: "quinta lei"),
+    CheckBoxState(title: "sexta lei"),
+  ];
+
+@override
+  void initState() {
+    super.initState();
+
+    var box = Hive.box<CheckBoxState>('lgpd_checkboxes');
+    var boxLength = box.toMap().length;
+    
+    if (boxLength == 0) {
+      box.addAll(items);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          centerTitle: true,
-          backgroundColor: Color(0xFF1A3F6D),
-          title: SizedBox(
-            height: 35,
-            child: Image.asset('assets/easycomply.png'),
-          ),
+        centerTitle: true,
+        backgroundColor: Color(0xFF1A3F6D),
+        title: SizedBox(
+          height: 35,
+          child: Image.asset('assets/easycomply.png'),
         ),
+      ),
       body: Container(
         margin: EdgeInsetsDirectional.only(top: 80.0),
         child: Row(
@@ -28,7 +56,7 @@ class Menu extends StatelessWidget {
                   logo: 'dashboard',
                   onPressed: () => Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => HomePage(initialPageIndex: 0),),
+                    MaterialPageRoute(builder: (context) => HomePage(initialPageIndex: 0)),
                   ),
                 ),
                 SizedBox(height: 10),
@@ -38,7 +66,7 @@ class Menu extends StatelessWidget {
                   logo: 'profile',
                   onPressed: () => Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => HomePage(initialPageIndex: 3),),
+                    MaterialPageRoute(builder: (context) => HomePage(initialPageIndex: 3)),
                   ),
                 ),
               ],
@@ -52,7 +80,7 @@ class Menu extends StatelessWidget {
                   logo: 'lgpd',
                   onPressed: () => Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => HomePage(initialPageIndex: 2),),
+                    MaterialPageRoute(builder: (context) => HomePage(initialPageIndex: 2)),
                   ),
                 ),
                 SizedBox(height: 10),
@@ -62,7 +90,7 @@ class Menu extends StatelessWidget {
                   logo: 'checklist',
                   onPressed: () => Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => HomePage(initialPageIndex: 1),),
+                    MaterialPageRoute(builder: (context) => HomePage(initialPageIndex: 1)),
                   ),
                 ),
               ],
