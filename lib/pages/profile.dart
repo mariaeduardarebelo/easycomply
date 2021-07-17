@@ -113,7 +113,7 @@ class _ProfileState extends State<Profile> {
                                   fontWeight: FontWeight.bold,
                                   color: Color(0xFF1C4E89))),
                           Text(
-                              'regulation \ncriteria topicos \nchecked'
+                              'regulation \ncriteria topics \nchecked'
                                   .toUpperCase(),
                               textAlign: TextAlign.start,
                               style: GoogleFonts.oswald(
