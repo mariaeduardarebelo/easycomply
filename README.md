@@ -1,6 +1,7 @@
 # EASY COMPLY
 
 > Repo concerning MSc course 'Fundamentos de Programação Aplicada' project. 
+> Presentation deck can be found **[here](https://docs.google.com/presentation/d/1NbNZHJ3Aazt5YE8BEIitCPbg_g8uaH80Elx5lG6oejM/edit?usp=sharing).** 
 
 ### APP LOGO
 
@@ -53,5 +54,14 @@ Compiles all the information regarding the user and its LGPD compliance trajecto
 Reach out to dicarllim@gmail.com for more info.
 
 # DOWNLOAD
+
+![Google Pixel 4 XL Presentation](https://user-images.githubusercontent.com/14913386/126050445-12ec958d-8dc7-4d8f-9200-b1f718b1cad7.png)
+
+
+
+https://user-images.githubusercontent.com/14913386/126051547-dbe9b341-559a-4020-a768-d7807a2cb817.mp4
+
+
+
 
 You can find it at [Play Store] for download. 
